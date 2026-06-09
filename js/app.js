@@ -1,49 +1,26 @@
 function comprar() {
-    const tipoIngresso = document.getElementById("tipo-ingresso").value;
-    const quantidade = Number(document.getElementById("qtd").value);
+    const tipo = document.getElementById('tipo-ingresso').value;
+    const qtd = parseInt(document.getElementById('qtd').value);
 
-    if (!validarQuantidade(quantidade)) {
-        return;
-    }
+    document.getElementById('resultado').textContent =
+        `Tipo: ${tipo} | Quantidade: ${qtd}`;
 
-    processarCompra(tipoIngresso, quantidade);
+    processarCompra(tipo, qtd);
 }
 
-function validarQuantidade(quantidade) {
-    if (isNaN(quantidade) || quantidade <= 0) {
-        alert("Informe uma quantidade válida.");
-        return false;
-    }
-
-    return true;
-}
-
-function processarCompra(tipo, quantidade) {
+function processarCompra(tipo, qtd) {
     const elementoQuantidade = document.getElementById(`qtd-${tipo}`);
-    const quantidadeDisponivel = Number(elementoQuantidade.textContent);
+    const confirmacao = document.getElementById('confirmacao');
 
-    if (quantidade > quantidadeDisponivel) {
-        alert("Quantidade indisponível para esse tipo de ingresso.");
+    const quantidadeDisponivel = parseInt(elementoQuantidade.textContent);
+
+    if (qtd > quantidadeDisponivel) {
+        confirmacao.textContent =
+            `Quantidade: ${qtd} indisponível para ${tipo}`;
         return;
     }
 
-    atualizarEstoque(elementoQuantidade, quantidadeDisponivel, quantidade);
+    elementoQuantidade.textContent = quantidadeDisponivel - qtd;
 
-    alert(
-        `${quantidade} ingresso(s) do tipo "${obterNomeIngresso(tipo)}" comprado(s) com sucesso!`
-    );
-}
-
-function atualizarEstoque(elemento, estoqueAtual, quantidadeComprada) {
-    elemento.textContent = estoqueAtual - quantidadeComprada;
-}
-
-function obterNomeIngresso(tipo) {
-    const tipos = {
-        pista: "Pista",
-        superior: "Cadeira Superior",
-        inferior: "Cadeira Inferior"
-    };
-
-    return tipos[tipo];
+    confirmacao.textContent = 'Compra realizada com sucesso!';
 }
