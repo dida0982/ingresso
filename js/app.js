@@ -3,7 +3,7 @@ function comprar() {
     const qtd = parseInt(document.getElementById('qtd').value);
 
     document.getElementById('resultado').textContent =
-        `Tipo: ${tipo} | Quantidade: ${qtd}`;
+        `Tipo de ingresso: ${tipo} | Quantidade de ingresso: ${qtd}`;
 
     processarCompra(tipo, qtd);
 }
@@ -16,7 +16,7 @@ function processarCompra(tipo, qtd) {
 
     if (qtd > quantidadeDisponivel) {
         confirmacao.textContent =
-            `Quantidade: ${qtd} indisponível para ${tipo}`;
+            `Quantidade de ingresso: ${qtd} indisponível para ${tipo}`;
         return;
     }
 
