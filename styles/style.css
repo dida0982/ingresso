@@ -1,13 +1,21 @@
 body {
-    width: 1440px;
-    height: 100vh;
-    background: linear-gradient(180deg, rgba(1, 8, 14, 1) 1%, rgba(4, 24, 50, 1) 39%, rgba(1, 8, 14, 1) 88%);
-    margin: 5% auto;
+    min-height: 100vh;
+    width: 100%;
+    max-width: 100%;
+    margin: 0;
+    padding: 2rem;
+    background: linear-gradient(
+        180deg,
+        rgba(1, 8, 14, 1) 1%,
+        rgba(4, 24, 50, 1) 39%,
+        rgba(1, 8, 14, 1) 88%
+    );
     color: #fff;
 }
 
 header {
-    width: 1200px;
+    width: 100%;
+    max-width: 1200px;
     margin: 2rem auto;
 }
 
@@ -17,7 +25,8 @@ header .logo {
 }
 
 main.container {
-    width: 1200px;
+    width: 100%;
+    max-width: 1200px;
     height: auto;
     border: 2px solid #00F4BF;
     margin: 0 auto;
@@ -134,4 +143,74 @@ form button {
     font-style: italic;
     font-size: 2rem;
     padding-left: 1.5rem;
+}
+
+@media (max-width: 768px) {
+
+    body {
+        padding: 1rem;
+    }
+
+    main.container {
+        padding: 2rem 1rem;
+    }
+
+    main.container h1 {
+        font-size: 3rem;
+        text-align: center;
+    }
+
+    form {
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+    form .input-group {
+        width: 100%;
+    }
+
+    form .input-group select,
+    form .input-group input,
+    form button {
+        width: 100%;
+    }
+
+    .container section {
+        flex-direction: column;
+        gap: 2rem;
+        align-items: center;
+        text-align: center;
+    }
+
+    .container section img {
+        width: 100%;
+        max-width: 300px;
+    }
+
+    .hachuras {
+        width: 100%;
+    }
+
+    main.container .grafismo {
+        width: 200px;
+    }
+}
+
+@media (max-width: 480px) {
+
+    main.container h1 {
+        font-size: 2.2rem;
+    }
+
+    .container section h2 {
+        font-size: 1.5rem;
+    }
+
+    .container section ul {
+        font-size: 1.2rem;
+    }
+
+    .container section ul li span {
+        font-size: 1.5rem;
+    }
 }
