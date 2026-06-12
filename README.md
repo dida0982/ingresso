@@ -13,6 +13,10 @@
 
 ---
 
+<img width="999" height="871" alt="image" src="https://github.com/user-attachments/assets/9161e515-3966-440c-9527-033d3fb500d8" />
+
+---
+
 ## 📋 Índice
 
 - [Sobre o projeto](#-sobre-o-projeto)
